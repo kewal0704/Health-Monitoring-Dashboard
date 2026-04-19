@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Health Monitoring Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="side-nav">
+    <div class="side-logo">HP</div>
+    <a href="#hero">Home</a>
+    <a href="#overview">Overview</a>
+    <a href="#forms">Forms</a>
+    <a href="#analytics">Analytics</a>
+    <a href="#records">Records</a>
+  </aside>
+
+  <header class="hero" id="hero">
+    <div class="hero-light" id="heroLight"></div>
+
+    <div class="hero-bg">
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+      <div class="glow glow-3"></div>
+      <div class="grid-overlay"></div>
+      <div class="floating floating-1"></div>
+      <div class="floating floating-2"></div>
+      <div class="floating floating-3"></div>
+      <div class="floating floating-4"></div>
+    </div>
+
+    <nav class="navbar">
+      <div class="logo">Health<span>Pro</span></div>
+      <div class="nav-links">
+        <a href="#forms">Forms</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#records">Records</a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <p class="tag">Smart Health Monitoring Platform</p>
+      <h1>Premium Health Monitoring Dashboard</h1>
+      <p class="subtitle">
+        Track health data, manage appointments, and enjoy a modern premium interface with deep scroll sections and interactive effects.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#forms" class="btn primary">Get Started</a>
+        <a href="#records" class="btn secondary">View Records</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-card reveal">
+          <h3 id="totalHealthRecords">0</h3>
+          <p>Health Records</p>
+        </div>
+        <div class="stat-card reveal">
+          <h3 id="totalAppointments">0</h3>
+          <p>Appointments</p>
+        </div>
+        <div class="stat-card reveal">
+          <h3 id="avgHeartRate">0</h3>
+          <p>Avg Heart Rate</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span></span>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section id="overview" class="features-section reveal">
+      <div class="section-title">
+        <p>Dashboard Features</p>
+        <h2>Advanced Premium Experience</h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-box reveal">
+          <h3>Health Tracking</h3>
+          <p>Save heart rate, blood pressure, sugar level, and weight records in MongoDB.</p>
+        </div>
+        <div class="feature-box reveal">
+          <h3>Appointments</h3>
+          <p>Book doctor appointments and keep them organized with a clean card layout.</p>
+        </div>
+        <div class="feature-box reveal">
+          <h3>Interactive Effects</h3>
+          <p>Mouse-follow light, premium hero animation, and smooth reveal on scroll.</p>
+        </div>
+        <div class="feature-box reveal">
+          <h3>Management Tools</h3>
+          <p>Edit and delete health records, delete appointments, and monitor stats quickly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="forms" class="dashboard-grid">
+      <section class="card reveal">
+        <div class="card-header">
+          <h2 id="healthFormTitle">Add Health Metrics</h2>
+          <p>Store patient wellness data</p>
+        </div>
+
+        <form id="healthForm">
+          <input type="hidden" id="healthId" />
+          <input type="text" id="name" placeholder="Name" required />
+          <input type="number" id="age" placeholder="Age" required />
+          <input type="number" id="heartRate" placeholder="Heart Rate" required />
+          <input type="text" id="bloodPressure" placeholder="Blood Pressure (e.g. 120/80)" required />
+          <input type="number" id="sugarLevel" placeholder="Sugar Level" required />
+          <input type="number" id="weight" placeholder="Weight (kg)" required />
+
+          <div class="form-actions">
+            <button type="submit" id="healthSubmitBtn">Save Health Data</button>
+            <button type="button" id="cancelEditBtn" class="secondary-btn hidden">Cancel Edit</button>
+          </div>
+        </form>
+
+        <div id="healthMessage" class="message-box"></div>
+      </section>
+
+      <section class="card reveal">
+        <div class="card-header">
+          <h2>Book Appointment</h2>
+          <p>Save doctor visit details</p>
+        </div>
+
+        <form id="appointmentForm">
+          <input type="text" id="patientName" placeholder="Patient Name" required />
+          <input type="text" id="doctorName" placeholder="Doctor Name" required />
+          <input type="date" id="date" required />
+          <input type="time" id="time" required />
+          <input type="text" id="reason" placeholder="Reason" required />
+          <button type="submit">Book Appointment</button>
+        </form>
+
+        <div id="appointmentMessage" class="message-box"></div>
+      </section>
+    </section>
+
+    <section id="analytics" class="analytics-section reveal">
+      <div class="section-title">
+        <p>Analytics</p>
+        <h2>Health Overview Chart</h2>
+      </div>
+
+      <div class="card chart-card">
+        <canvas id="healthChart" width="1000" height="320"></canvas>
+      </div>
+    </section>
+
+    <section id="records" class="records-section">
+      <section class="card large-card reveal">
+        <div class="card-header">
+          <h2>Recent Health Records</h2>
+          <p>Latest saved health metric entries</p>
+        </div>
+        <div id="healthList" class="list-grid"></div>
+      </section>
+
+      <section class="card large-card reveal">
+        <div class="card-header">
+          <h2>Appointments</h2>
+          <p>Latest booked appointment entries</p>
+        </div>
+        <div id="appointmentList" class="list-grid"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
